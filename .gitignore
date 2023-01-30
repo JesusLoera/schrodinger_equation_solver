@@ -1,0 +1,11 @@
+# Ignora un archivo de texto
+
+# Ignora los siguientes folders
+
+/references
+
+# Ignora las siguientes terminaciones
+
+*.mp4
+
+*.pdf
