@@ -1,5 +1,10 @@
 ! Programa elaborado por Jesús Eduardo Loera Casas
 ! Fecha 30/01/23
+
+! En este programa se implementa el método de Euler o del salto de 
+! rana para resolver una ecuación diferencial de orden uno del tipo
+
+!           y'(x) = f(y(X),x)
  
         real function f(x, y)
             implicit none
