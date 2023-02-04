@@ -2,7 +2,7 @@
 # Elaborado el día dd/mm/aa
  
 # importamos librerías 
-import numpy as np
+import numpy as np 
 
 """
 En este programa implementamos el método de bisección para determinar 
