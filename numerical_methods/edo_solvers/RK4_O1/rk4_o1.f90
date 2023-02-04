@@ -1,32 +1,32 @@
 ! Programa elaborado por Jesús Eduardo Loera Casas
-! Fecha 01/02/23
+! Fecha 03/02/23
 
-! En este programa se implementa el método de leap-frog o del salto de 
-! rana para resolver una ecuación diferencial de orden uno del tipo
+! En este programa se implementa el método de Runge-Kutta de
+! cuarto orden para resolver ecuaciones diferenciales del tipo
 
 !           y'(x) = f(y(X),x)
 
 ! Este algoritmo es más preciso que el algoritmo de Euler al basarse en
 ! la derivada central en lugar de la derivada hacia delante.
  
-        real function f(x, y)
+    real function f(x, y)
         implicit none
         real :: x,y
         f = x*y
         return
     end  
 
-    subroutine rk2_o1(X, Y, N, dx)
+    subroutine rk4_o1(X, Y, N, dx)
         implicit none
         integer :: N, i
         real, dimension(N) :: X, Y
-        real :: dx, f, k1, k2
-        ! El segundo elemento inicial se calcula con la formula del
-        ! método de euler y después los otros N-2 con leap-frog
+        real :: dx, f, k1, k2, k3, k4
         do i = 1, N-1
             k1 = f(X(i),Y(i))
             k2 = f(X(i) + 0.5*dx , Y(i) + 0.5*k1*dx )
-            Y(i+1) = Y(i) + k2*dx
+            k3 = f(X(i) + 0.5*dx , Y(i) + 0.5*k2*dx )
+            k4 = f(X(i) + dx , Y(i) + k3*dx )
+            Y(i+1) = Y(i) + (1.0/6)*dx*(k1+2*k2+2*k3+k4)
         end do
     end subroutine
 
@@ -56,10 +56,10 @@
         Y(1) = yo
 
         ! Llamamos el método de Euler
-        call rk2_o1(X, Y, N, dx)
+        call rk4_o1(X, Y, N, dx)
 
         ! write array to a file
-        open(10, file='rk2_o1.dat')
+        open(10, file='rk4_o1.dat')
         do i=1,N
             write(10, '(f8.6,A4,f8.6)')X(i), "    " ,Y(i)
         end do

@@ -72,15 +72,32 @@ def rk2o1(X, xo, yo):
         Y[i+1] = Y[i] + k2*dx
     return X, Y
 
+"""
+Método de Runge-kutta orden 4
+"""
+def rk4o1(X, xo, yo):
+    Y = np.zeros(len(X))
+    Y[0] = yo
+    dx = X[1] - X[0]
+    for i in range(0, len(X)-1):
+        k1 = funcion(Y[i], X[i])
+        k2 = funcion( Y[i]+0.5*k1*dx, X[i]+0.5*dx)
+        k3 = funcion( Y[i]+0.5*k2*dx, X[i]+0.5*dx)
+        k4 = funcion( Y[i]+k3*dx, X[i]+dx)
+        Y[i+1] = Y[i] + (1.0/6)*dx*(k1+2*k2+2*k3+k4)
+    return X, Y
+
 Sol1 = euler(X, xo, yo)
 Sol2 = leapfrog(X, xo, yo)
 Sol3 = rk2o1(X, xo, yo)
+Sol4 = rk4o1(X, xo, yo)
 Y = 2*np.exp((X**2)/2)
 
 
 plt.plot(Sol1[0], Sol1[1], label="Método de Euler", c= "blue")
 plt.plot(Sol2[0], Sol2[1], label="Método de Leap Frog", c= "green")
 plt.plot(Sol3[0], Sol3[1], label="Método de Runge Kutta 2 pasos orden 1", c= "red")
+plt.plot(Sol4[0], Sol4[1], label="Método de Runge Kutta orden 4", c= "green")
 plt.plot(X, Y, label ="Solución Analítica", c="orange")
 plt.legend()
 plt.grid()
