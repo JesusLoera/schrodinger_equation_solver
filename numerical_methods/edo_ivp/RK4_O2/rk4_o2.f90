@@ -16,7 +16,7 @@
         real function f(z, y, x)
             implicit none
             real :: x,y,z
-            f = 5*(x-z)
+            f = -9.8
             return
         end  
 
@@ -26,16 +26,16 @@
             real, dimension(N) :: X, Y, Z
             real :: dx, f, k1, k2, k3, k4, i1, i2, i3, i4
             do i = 1, N-1
-                k1 = Z(i)
-                i1 = f(Z(i), Y(i), X(i))
-                k2 = Z(i) + (0.5)*i1*dx
-                i2 = f(Z(i)+0.5*i1*dx, Y(i)+0.5*k1*dx, X(i)+0.5*dx)
-                k3 = Z(i) + (0.5)*i2*dx
-                i3 = f(Z(i)+0.5*i2*dx, Y(i)+0.5*k2*dx, X(i)+0.5*dx)
-                k4 = Z(i) + i3*dx
-                i4 = f(Z(i)+i3*dx, Y(i)+k3*dx, X(i)+dx)
-                Y(i+1) = Y(i) + (1.0/6)*dx*(k1+2*k2+2*k3+k4)
-                Z(i+1) = Z(i) + (1.0/6)*dx*(i1+2*i2+2*i3+i4)
+                k1 = dx*Z(i)
+                i1 = dx*f(Z(i), Y(i), X(i))
+                k2 = dx*(Z(i) + (0.5)*i1)
+                i2 = dx*f(Z(i)+0.5*i1, Y(i)+0.5*k1, X(i)+0.5*dx)
+                k3 = dx*(Z(i) + (0.5)*i2)
+                i3 = dx*f(Z(i)+0.5*i2, Y(i)+0.5*k2, X(i)+0.5*dx)
+                k4 = dx*(Z(i) + i3)
+                i4 = dx*f(Z(i)+i3, Y(i)+k3, X(i)+dx)
+                Y(i+1) = Y(i) + (1.0/6.0)*(k1+2*k2+2*k3+k4)
+                Z(i+1) = Z(i) + (1.0/6.0)*(i1+2*i2+2*i3+i4)
             end do
         end subroutine
 
@@ -47,11 +47,11 @@
             real, allocatable :: X(:), Y(:), Z(:)
 
             ! Definimos la malla de integración
-            dx = 0.001 ; xmin = 0.0 ; xmax = 1.0
+            dx = 0.001 ; xmin = 0.0 ; xmax = 5.0
             N = (xmax - xmin)/dx + 1
 
             ! Condicion inicial
-            xo = xmin  ;  yo = 1  ;  zo = 3.59655
+            xo = xmin  ;  yo = 0  ;  zo = 34.5
 
             ! Definimos el tamaño del arreglo
             allocate(X(1:N), Y(1:N), Z(1:N))

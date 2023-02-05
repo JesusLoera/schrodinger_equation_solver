@@ -18,17 +18,17 @@
 ! Se adivina E y se resuelve la ivp hasta satisfacer g(E) = 0
 
         ! Definimos la edo a resolver
-        real function f(z, y, x)
+        real(8) function f(z, y, x)
             implicit none
-            real :: x,y,z
+            real(8) :: x,y,z
             f = -9.8
             return
         end  
 
         ! Definimos la función de convergencia
-        real function g(Un, Fn)
+        real(8) function g(Un, Fn)
             implicit none 
-            real Un, Fn
+            real(8) Un, Fn
             g = Un - Fn
             return
         end
@@ -38,12 +38,12 @@
 
             implicit none
             integer :: i, N, step
-            real :: xmin, xmax, dx, xo, yo, yn
-            real :: emax, emin, root
-            real, allocatable :: X(:), Y(:), Z(:)
+            real(8) :: xmin, xmax, dx, xo, yo, yn
+            real(8) :: emax, emin, root
+            real(8), allocatable :: X(:), Y(:), Z(:)
 
             ! Definimos la malla de integración
-            dx = 0.001 ; xmin = 0.0 ; xmax = 5.0
+            dx = 0.0001 ; xmin = 0.0 ; xmax = 5.0
             N = (xmax - xmin)/dx + 1
 
             ! Definimos el intervalo de busqueda para adivinar
@@ -84,8 +84,8 @@
         subroutine rk4o2(X, Y, Z, N, dx)
             implicit none
             integer :: N, i
-            real, dimension(N) :: X, Y, Z
-            real :: dx, f, k1, k2, k3, k4, i1, i2, i3, i4
+            real(8), dimension(N) :: X, Y, Z
+            real(8) :: dx, f, k1, k2, k3, k4, i1, i2, i3, i4
             do i = 1, N-1
                 k1 = Z(i)
                 i1 = f(Z(i), Y(i), X(i))
@@ -105,37 +105,39 @@
 
         subroutine bisect_shooting(X,Y,Z,N,dx,a,b,Fn,root,step)
             implicit none
-            real :: a, b, E, root, g, tol, Fn, dx, Un, aux, dE, dy
-            real, dimension(N) :: X, Y, Z
+            real(8) :: a, b, E, root, g, tol, Fn, dx, Un, dE, dy, Ua
+            real(8), dimension(N) :: X, Y, Z
             integer :: steps, step, i, N
             ! definimos una tolerancia para la convergencia
-            tol = 0.9 
+            tol = 0.000001
             ! definimos un número iteraciones maxima para la convergencia
             steps = 10000
+
+            open(11, file='energy_shooting.dat')
 
             do i = 1, steps
                 E = 0.5*(a+b)
                 dE = b-a
                 Z(1) = a 
                 call rk4o2(X, Y, Z, N, dx)
-                aux = Z(N) 
+                Ua = Y(N) 
                 Z(1) = E
                 call rk4o2(X, Y, Z, N, dx)
-                Un = Z(N)
-                dy = Un - Fn
-                write(*,*) E
-                if (  abs(dy) .le. tol ) then
+                Un = Y(N)
+                dy = Un - Fn 
+                write(11,*) E
+                if (  abs(dE) .le. tol ) then
                     step = i
                     root = E 
                     exit
                 end if
 
-                if ( g(aux, Fn)*g(Un, Fn)>0 ) then
+                if ( g(Ua, Fn)*g(Un, Fn)>0 ) then
                     a = E
-                else if ( g(aux, Fn)*g(Un, Fn)<0 ) then
+                else if ( g(Ua, Fn)*g(Un, Fn)<0 ) then
                     b = E
                 else 
-                    if ( g(Un, Fn)==0 ) then
+                    if ( g(Ua, Fn)==0 ) then
                         write(*,*) "Hay una raiz en x = ", a
                         step = i
                         root = a
@@ -153,5 +155,6 @@
                 write(*,*) "No se encontro raiz que satisfaga la"
                 write(*,*) "tolerancia", tol, " en ", steps, " pasos" 
             end if
+            close(11)
     
         end subroutine bisect_shooting
