@@ -19,8 +19,8 @@ def matrix(xo, xn, yo, yn, N, P, Q, R):
     b[0] = yo   ;  b[N-1] = yn
     for i in range(1, N-1):
         A[i][i]   = -4 + 2*Q(X[i])*dx**2
-        A[i][i+1] = 2 + dx*P(X[i])
-        A[i][i-1] = 2 - dx*P(X[i])
+        A[i][i+1] = 2 - dx*P(X[i])
+        A[i][i-1] = 2 + dx*P(X[i])
         b[i]      = 2*R(X[i])*dx**2
     return A, b, X
 
