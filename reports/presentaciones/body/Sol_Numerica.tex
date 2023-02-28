@@ -1,0 +1,240 @@
+\section{Solución numérica a la ecuación de Schr\"odinger}
+
+\begin{frame}{Ecuación de Schr\"odinger en coordenadas esféricas}
+
+Se propone una forma para la función de onda del tipo $\Psi=Y(\theta,\phi)R(r)$, donde $Y(\theta,\phi)$ es la misma para todos los potenciales esfericamente simétricos y está en términos de los \textit{armónicos esféricos}.\\
+
+\vspace{5mm}
+Hay que resolver $R(r):$
+\begin{equation*}
+    \frac{d}{dr}\left(r^{2}\frac{dR}{dr}\right) - \frac{2mr^{2}}{\hbar^{2}}[V(r)-E]R = l(l+1)R
+\end{equation*}
+
+Efectuando un cambio de variable $u(r)=rR(r)$ se obtiene:
+\begin{equation*}
+    -\frac{\hbar^{2}}{2m}\frac{d^{2}u}{dr^{2}} + \left[V+\frac{h^{2}}{2m}\frac{l(l+1)}{r^2}\right]u = Eu
+\end{equation*}
+    
+\end{frame}
+
+\begin{frame}{}
+
+Dando una forma más adecuada a la ecuación:
+\begin{equation*}
+    \frac{d^{2}u_{l}(r)}{dr^{2}} + \frac{2\mu}{\hbar^{2}} \left[(E-V)-\frac{\hbar^{2}}{2\mu}\frac{l(l+1)}{r^{2}}\right]u_{l}(r) = 0
+\end{equation*}
+
+En donde se ha definido:\\
+\vspace{5mm}
+$\mu:=$ masa reducida $=\frac{m_{q}m_{\Bar{q}}}{m_{q}+m_{\Bar{q}}} = \frac{m_{q}^{2}}{2m_{q}} = \frac{m_{q}}{2}$\\
+\vspace{5mm}
+$m_{q}:=$ masa reducida del quark pesado\\
+\vspace{5mm}
+$u_{l}(r):= rR_{l}(r)$ (l fijo de $Y_{lm}(\theta,\phi)$) \\
+\vspace{5mm}
+$V(r):=$ Potencial de Cornell
+    
+\end{frame}
+
+\begin{frame}{}
+
+Si se define:
+\begin{equation*}
+    K_{l}(r) = \frac{2\mu}{\hbar^{2}} \left[(E-V(r)) - \frac{\hbar^{2}}{2\mu} \frac{l(l+1)}{r^{2}} \right]
+\end{equation*}
+
+Particularmente para l=0:
+\begin{equation*}
+    K_{0}(r) = \frac{2\mu}{\hbar^{2}} (E-V(r))
+\end{equation*}
+
+Entonces:
+\begin{equation*}
+    \frac{d^{2}u_{l}(r)}{dr^{2}} = -K_{l}(r)u_{l}(r)
+\end{equation*}
+
+\vspace{5mm}
+Se busca resolver esta EDO y obtener los eigenvalores de la energía
+    
+\end{frame}
+
+\begin{frame}{El método de Numerov}
+
+El método de Numerov nos permite integrar ecuaciones del tipo:
+\begin{equation*}
+    \frac{d^{2}f(x)}{dx^{2}} = a(x)f(x)
+\end{equation*}
+
+Sea $r$ un arreglo de números linealmente espaciados una distancia $h$.
+\begin{itemize}
+    \item $r_{n} = r_{n-1} + h$
+\end{itemize}
+
+Se introduce la notación:
+\begin{gather*}
+    u_{n}^{l} = u^{l}(r_{n}) = u^{l}(r_{n-1}+h) \\
+    k_{n} = k(r_{n}) = k(r_{n-1}+h)
+\end{gather*}
+
+\end{frame}
+
+\begin{frame}{}
+
+De manera que:
+\begin{equation*}
+    u_{n+1}^{l} = u^{l}(r_{n}+h) \;\;\;\; u_{n-1}^{l} = u(r_{n}-h)
+\end{equation*}
+
+Por expansión en serie de Taylor alrededor de $r_{n}$:
+\begin{gather}
+    u_{n+1}^{l} = u(r_{n}) + hu'(r_{n}) + \frac{h^{2}}{2}u''(r_{n}) + \frac{h^{3}}{6}u'''(r_{n}) + \frac{h^{4}}{24}u^{(4)}(r_{n}) + O(h^{5}) \\
+    u_{n-1}^{l} = u(r_{n}) - hu'(r_{n}) + \frac{h^{2}}{2}u''(r_{n}) - \frac{h^{3}}{6}u'''(r_{n}) + \frac{h^{4}}{24}u^{(4)}(r_{n}) + O(h^{5})
+\end{gather}
+    
+\end{frame}
+
+\begin{frame}{}
+
+Aproximando $u''(r_{n})$ a la segunda derivada por diferencia de tres puntos:
+\begin{equation}
+    u''(r_{n}) = 
+    \begin{pmatrix}
+        \frac{2}{(r_{n-1}-r_{n-2})(r_{n}-r_{n-1})} \\[6pt] \frac{-2}{(r_{n}-r_{n-1})(r_{n-1}-r_{n-2})} \\[6pt] \frac{2}{(r_{n}-r_{n-1})(r_{n}-r_{n-2})}
+    \end{pmatrix}^{T}
+    \begin{pmatrix}
+        u_{n-2} \\ u_{n-1} \\ u_{n}
+    \end{pmatrix}
+\end{equation}
+
+Con (19)-(21):
+\begin{equation}
+    u_{n} = \frac{2\left(1-\frac{5h^{2}}{12}\right)K_{n-1}u_{n-1} - \left(1+\frac{h^{2}}{12}K_{n-2}\right)u_{n-2}}{\left(1+\frac{h^{2}}{12}K_{n}\right)}
+\end{equation}
+    
+\end{frame}
+
+\begin{frame}{}
+
+\begin{equation}
+    u_{n} = \frac{2\left(1-\frac{5h^{2}}{12}K_{n}\right)u_{n} - \left(1+\frac{h^{2}}{12}K_{n+1}\right)u_{n+1}}{\left(1+\frac{h^{2}}{12}K_{n-1}\right)}
+\end{equation}
+
+Las ecuaciones (22) y (23) son las relaciones recursivas hacia adelante y hacia atrás respectivamente.\\
+
+Para calcular todos los $\{u_{i}\}=\{u_{0},u_{1},...,u_{n}\}$ necesitamos dos valores iniciales:
+\begin{itemize}
+    \item $u_{n-1}$ y $u_{n-2}$ si usamos la RRH Adelante
+    \item $u_{n}$ y $u_{n+1}$ si usamos la RRH Atrás
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{}
+
+Y la derivada $u'_{n}$ queda dada por:
+\begin{equation*}
+    u'_{n} = \frac{1}{2h} \left[\left(1+\frac{h^{2}}{6}K_{n+1}\right)u_{n+1} - \left(1+\frac{h^{2}}{6}K_{n-1}\right)u_{n+1}\right] + O(h^{4})
+\end{equation*}
+
+Cómo determinar un eigenvalor de la energía?
+\begin{itemize}
+    \item Región $E>V(r) \rightarrow$ Clásica permitida
+    \item Región $E<V(r) \rightarrow$ Clásica prohibida
+\end{itemize}
+\vspace{5mm}
+Las regiones están separadas por un $r_{c}$ dado por:
+\begin{equation*}
+    E=V(r_{c})
+\end{equation*}
+    
+\end{frame}
+
+\begin{frame}
+
+Sean:
+\begin{equation*}
+    u_{out} = \frac{2\left(1-\frac{5h^{2}}{12}K_{n-1}\right)u_{n-1} - \left(1+\frac{h^{2}}{12}K_{n-2}\right)u_{n-2}}{\left(1+\frac{h^{2}}{12}K_{n}\right)}
+\end{equation*}
+donde:
+\begin{gather*}
+    u_{n-1} = u(r_{c}) = u_{c} \\
+    u_{n-2} = u(r_{c-1}) = u_{c-1}
+\end{gather*}
+
+\begin{equation*}
+    u_{in} = \frac{2\left(1-\frac{5h^{2}}{12}K_{n}\right)u_{n} - \left(1+\frac{h^{2}}{12}K_{n-1}\right)u_{n+1}}{\left(1+\frac{h^{2}}{12}K_{n-1}\right)}
+\end{equation*}
+donde:
+\begin{gather*}
+    u_{n} = u(r_{c}) = u_{c} \\
+    u_{n+1} = u(r_{c+1}) = u_{c+1}
+\end{gather*}
+    
+\end{frame}
+
+\begin{frame}{}
+
+$E$ es un valor de la energía si:
+\begin{equation*}
+    G(E) = \left[\frac{u'_{out}}{u_{out}}\right]_{r=r_{c}} - \left[\frac{u'_{in}}{u_{in}}\right]_{r=r_{c}} = 0
+\end{equation*}
+
+Damos valores de $E$ tales que $E\in(E_{1},E_{2})$ y se calcula $G(E)$ hasta hallar un cambio de signo, supóngase entre $E_{j}$ y $E_{k}$.\\
+\vspace{5mm}
+$\Rightarrow$ Hay un eigenvalor de la energía entre $E_{j}$ y $E_{k}=E_{j+1}$
+    
+\end{frame}
+
+\begin{frame}{Bottonium}
+
+Para el bottonium debería encontrarse el primer eigenvalor de la energía aproximadamente en:
+\begin{equation*}
+    B^{15}_{est} = M^{15}_{exp}-2m_{b} = -0.8997 GeV
+\end{equation*}
+donde $M^{15}_{exp}=9.4603 GeV$ y $m_{b}=5.18 GeV$.\\
+\vspace{5mm}
+Para la búsqueda computacional el intervalo de energías será:
+\begin{gather*}
+    E_{if} = [-5,0] \\
+    \Rightarrow B^{15}_{est} \in E_{if}
+\end{gather*}
+\vspace{5mm}
+Se utiliza $\Delta E=0.5GeV$ y $len(E_{if})=11$.\\
+Haciendo $B^{15}_{est}=V(r_{cut}) \Rightarrow r_{cut} \approx 0.1fm$.
+    
+\end{frame}
+
+\begin{frame}{}
+
+\begin{gather*}
+    -\frac{4}{3}\frac{\alpha_{s}\hbar c}{r} +\sigma r = B^{15}_{est} \\
+    0 = -\frac{4}{3}\frac{\alpha_{s}\hbar c}{r} - B^{15}_{est} + \sigma r \\
+    r_{cut} \approx 0.10330565fm
+\end{gather*}
+\vspace{5mm}
+Intervalo de exploración:
+\begin{gather*}
+    r_{max} = 1.0fm \\
+    h = 0.001fm \\
+    len(r) = 1000
+\end{gather*}
+    
+\end{frame}
+
+\begin{frame}{Condiciones de frontera}
+\begin{gather*}
+    u(r_{min}) = 0 \\
+    u(r_{max}) = 0
+\end{gather*}
+
+Pero deben de ser dos desde $r\rightarrow r_{max}$.\\
+Consideramos más general:
+\begin{equation*}
+    u(r\rightarrow 0) \rightarrow r^{l+1}
+\end{equation*}
+\begin{align*}
+    u&(r\rightarrow \infty) \rightarrow exp\left[ -\frac{\sqrt{2\mu |E|}}{\hbar}r \right] \\
+    &(r\rightarrow r_{max})
+\end{align*}
+    
+\end{frame}

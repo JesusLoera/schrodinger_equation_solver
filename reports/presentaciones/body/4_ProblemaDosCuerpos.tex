@@ -1,0 +1,239 @@
+\section{El problema de los dos cuerpos}
+
+\begin{frame}{El problema de los dos cuerpos}
+
+    Si tenemos dos cuerpos que interaccionan mediante un potencial radial con simetría esférica, el hamiltoniano del sistema está dado por:
+        
+    \begin{equation*}
+        \hat{H} (\hat{p}_{1}, \hat{p}_{2}, \Vec{r}_{1}, \Vec{r}_{2}) = \hat{H}_{1} (\hat{p}_{1}, \Vec{r}_{1} ) + \hat{H}_{2} ( \hat{p}_{2}, \Vec{r}_{2}) + V(\Vec{r}_{1}, \Vec{r}_{2})
+    \end{equation*}
+        
+    La ecuación de Schr\"odinger, $E \Psi=\hat{H} \Psi $, toma la forma \cite{de2014introduccion}
+    
+    \begin{align*}
+        E \Psi &= \left[ \hat{H}_{1}  + \hat{H}_{2}  + V(\Vec{r}_{1}, \Vec{r}_{2}) \right] \Psi \\
+        &=  \left[ - \frac{\hbar^2}{2m_{1}} \nabla^{2}_{1} - \frac{\hbar^2}{2m_{2}} \nabla^{2}_{2}  + V_{1} (\Vec{r}_1)   + V_{2} (\Vec{r}_2)  + V(\Vec{r}_{1}, \Vec{r}_{2}) \right] \Psi
+    \end{align*}
+    
+\end{frame}
+
+\begin{frame}{}
+
+    Suponiendo que la partículas están aisladas y solo interaccionan entre si, es decir $V_{1}=V_{2}=0$.
+
+    \begin{align*}
+        E \Psi &=  \left[ - \frac{\hbar^2}{2m_{1}} \nabla^{2}_{1} - \frac{\hbar^2}{2m_{2}} \nabla^{2}_{2} + V(\Vec{r}_{1}, \Vec{r}_{2}) \right] \Psi
+    \end{align*}
+    
+    Consideramos potenciales que dependen solo de la posición relativa, es decir, $V(\Vec{r}_{1}, \Vec{r}_{2}) = V(\Vec{r}_{1} - \Vec{r}_{2})$.
+    
+    \begin{align*}
+        E \Psi &=  \left[ - \frac{\hbar^2}{2m_{1}} \nabla^{2}_{1} - \frac{\hbar^2}{2m_{2}} \nabla^{2}_{2} + V(\Vec{r}_{1} - \Vec{r}_{2}) \right] \Psi
+    \end{align*}
+    
+\end{frame}
+
+\begin{frame}{}
+    
+    La función de onda está descrita por 6 variables independientes ($\Vec{r}_1$, $\Vec{r}_2$), podemos cambiar a otras 6 variables más convenientes.
+    
+    \begin{equation*}
+        \Vec{r} = \Vec{r}_1 - \Vec{r}_2
+    \end{equation*}
+    
+    \begin{equation*}
+        \Vec{R} = \frac{ m_1 \Vec{r}_1 + m_2 \Vec{r}_2 }{M} 
+        \quad \mathrm{;} \quad
+        M = m_1 + m_2
+    \end{equation*}
+    
+    De manera que
+    
+    \begin{equation*}
+        \nabla_1 = \nabla_r + \frac{m_1}{M} \nabla_R
+        \quad \mathrm{y} \quad
+        \nabla_2 = - \nabla_r + \frac{m_2}{M} \nabla_R
+    \end{equation*}
+    
+\end{frame}
+
+\begin{frame}{}
+    
+    De esta manera
+    
+    \begin{align*}
+        \nabla_1^2 &= \left( \nabla_r + \frac{m_1}{M} \nabla_R \right)
+        \left( \nabla_r + \frac{m_1}{M} \nabla_R \right) \\
+        &= \nabla_r^2 + \frac{m_1}{M} \nabla_r \nabla_R + \frac{m_1}{M} \nabla_R \nabla_r + \frac{m_1^2}{M^2} \nabla_R^2
+    \end{align*}
+    
+    \begin{align*}
+        \nabla_2^2 &= \left( - \nabla_r + \frac{m_2}{M} \nabla_R \right)
+        \left( - \nabla_r + \frac{m_2}{M} \nabla_R \right) \\
+        &= \nabla_r^2 - \frac{m_2}{M} \nabla_r \nabla_R - \frac{m_2}{M} \nabla_R \nabla_r + \frac{m_2^2}{M^2} \nabla_R^2
+    \end{align*}
+    
+\end{frame}
+
+\begin{frame}{}
+    
+    Sumando $ \nabla_1^2 / m_1 $ y $ \nabla_2^2 / m_2 $
+    
+    \begin{align*}
+        \frac{\nabla_1^2}{m_1} + \frac{\nabla_2^2}{m_2}
+        &= \frac{\nabla_r^2}{m_1} + \frac{m_1}{M^2} \nabla_R^2 + \frac{\nabla_r^2}{m_2} + \frac{m_2}{M^2} \nabla_R^2 \\
+        &= \left( \frac{1}{m_1} + \frac{1}{m_2} \right) \nabla_r^2 + \left(  \frac{m_1}{M^2} + \frac{m_2}{M^2} \right) \nabla_R^2 \\
+        &= \left( \frac{m_1 + m_2}{m_1 m_2}  \right) \nabla_r^2 + \frac{1}{M} \nabla_R^2 \\
+        &= \frac{1}{ \mu}  \nabla_r^2 + \frac{1}{M} \nabla_R^2
+    \end{align*}
+    
+    Donde se define $\mu = \frac{m_1 m_2}{m_1 + m_2}$ como la masa reducida del sistema.
+    
+\end{frame}
+
+\begin{frame}{}
+    
+    Sustituyendo el anterior resultado en la ecuación de Schr\"odinger
+    
+    \begin{align*}
+        E \Psi &=  \left[ - \frac{\hbar^2}{2M} \nabla^{2}_{R} - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} + V( \Vec{r} ) \right] \Psi
+    \end{align*}
+    
+    Sea $ \Psi (\Vec{R}, \Vec{r}) = \Phi ( \Vec{R}) \psi (\Vec{r} ) $
+    
+    \begin{align*}
+        E \Phi ( \Vec{R}) \psi (\Vec{r} ) &=  \left[ - \frac{\hbar^2}{2M} \nabla^{2}_{R} - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} + V( \Vec{r} ) \right] \Phi ( \Vec{R}) \psi (\Vec{r} ) 
+    \end{align*}
+    
+    \begin{align*}
+        E &= \frac{1}{\Phi} \left[ - \frac{\hbar^2}{2M} \nabla^{2}_{R} \Phi \right] + \frac{1}{\psi} \left[ - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} \psi + V( \Vec{r} ) \psi \right]
+    \end{align*}
+    
+\end{frame}
+
+
+\begin{frame}{}
+    
+    Definimos
+    
+    \begin{align*}
+        f( \Phi ) = \frac{1}{\Phi} \left[ - \frac{\hbar^2}{2M} \nabla^{2}_{R} \Phi \right]
+        \quad \mathrm{y} \quad
+        g( \psi ) = \frac{1}{\psi} \left[ - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} \psi + V( \Vec{r} ) \psi \right]
+    \end{align*}
+    
+    \begin{equation*}
+        \implies E = f( \Phi ) +g( \psi )
+    \end{equation*}
+    
+    \begin{equation*}
+        \implies E - g( \psi ) = f( \Phi )
+    \end{equation*}
+    
+    La ecuación anterior solo tiene sentido si ambos lados de la ecuación son una contante
+    
+    \begin{equation*}
+        \implies E - g( \psi ) = f( \Phi ) \equiv E_R
+    \end{equation*}
+    
+    \begin{equation*}
+        \implies g( \psi ) = E - f( \Phi ) = E- E_R \equiv E_r
+    \end{equation*}
+    
+\end{frame}
+
+\begin{frame}{}
+    
+    Por lo tanto 
+    
+    \begin{align*}
+        E_R = \frac{1}{\Phi} \left[ - \frac{\hbar^2}{2M} \nabla^{2}_{R} \Phi \right]
+        \quad \mathrm{y} \quad
+        E_r = \frac{1}{\psi} \left[ - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} \psi + V( \Vec{r} ) \psi \right]
+    \end{align*}
+    
+    Es decir, tenemos la ecuaciones
+    
+    \begin{tcolorbox}[colback=blue!5!white, colframe =blue!75!black, title= Las ecuaciones del problema de dos cuerpos]
+        \begin{align*}
+        E_R \Phi ( \Vec{R} ) = - \frac{\hbar^2}{2M} \nabla^{2}_{R}  \Phi ( \Vec{R} )
+        \end{align*}
+        
+        \begin{align*}
+            E_r \psi ( \Vec{r} ) =  - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} \psi ( \Vec{r} ) + V( \Vec{r} ) \psi ( \Vec{r} )
+        \end{align*}
+    \end{tcolorbox}
+    
+\end{frame}
+
+\begin{frame}{}
+
+    La primera de las ecuaciones 
+    
+    \begin{align*}
+        E_R \Phi ( \Vec{R} ) = - \frac{\hbar^2}{2M} \nabla^{2}_{R}  \Phi ( \Vec{R} )
+    \end{align*}
+        
+    hace referencia al movimiento de de una cuasipartícula libre de masa $M$, cuya posición es el centro de masas de las partículas $m_1$ y $m_2$.
+    
+    Este movimiento es irrelevante y se puede tomar la solución trivial $E_R = 0$ y $\Phi (\Vec{R}) = cte$ de un marco de referencia en el centro de masas donde la cuasipartícula está en reposo.
+    
+\end{frame}
+
+\begin{frame}{}
+
+    La segunda ecuación
+    
+    \begin{align*}
+        E_r \psi ( \Vec{r} ) =  - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} \psi ( \Vec{r} ) + V( \Vec{r} ) \psi ( \Vec{r} )
+    \end{align*}
+        
+    hace referencia al movimiento de de una cuasipartícula libre de masa $\mu$, sujeta al pontencial $V(\Vec{r})$.
+    
+    \vspace{0.5cm}
+    
+    Esta es la ecuación de Schr\"odinger para el problema de dos partículas reducida a una partícula (de 6 variables a 3 variables).
+    
+\end{frame}
+
+\begin{frame}{}
+
+    Considerando potenciales radiales con simetría esférica $V(\Vec{r}) = V(r) $, la ecuación de Schr\"odinger nos queda 
+    
+    \begin{align*}
+        E_r \psi ( r, \theta, \phi ) =  - \frac{\hbar^2}{2 \mu } \nabla^{2}_{r} \psi ( r, \theta, \phi ) + V( r) \psi ( r, \theta, \phi )
+    \end{align*}
+
+    Esta ecuación es bien conocida, proponiendo $\psi (\Vec{r}) = R(r) Y( \theta, \phi )$ y considerando $ \nabla^{2}_{r} $ en coordenadas esféricas se puede separar fácilmente la ecuación.
+    
+\end{frame}
+
+\begin{frame}{}
+
+    \begin{tcolorbox}[colback=blue!5!white, colframe =blue!75!black, title= Ecuaciones separadas \cite{griffiths2018introduction}]
+    
+        La ecuación radial es:
+        
+        \begin{align*}
+            \frac{1}{R} \frac{d}{dr} \left( r^2 \frac{dR}{dr} \right) - \frac{2mr^2}{\hbar^2} \left[ V(r) - E \right] = l(l+1)
+        \end{align*}
+        
+        la solución depende del potencial.
+        
+        La ecuación angular es:
+        
+        \begin{align*}
+            \frac{1}{Y} \left\{ \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \left(  \sin{\theta} \frac{ \partial Y}{\partial \theta} \right) + \frac{1}{\sin^2{\theta}} \frac{\partial^2 Y }{ \partial \phi^2 } \right\} = -l(l+1)
+        \end{align*}
+        
+        cuya solución es $Y_{l,m} ( \theta, \phi ) $ (los armónicos esféricos).
+        
+    \end{tcolorbox}
+    
+\end{frame}
+
+
+
+
+
+
