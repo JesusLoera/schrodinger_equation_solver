@@ -1,4 +1,0 @@
-\babel@toc {spanish}{}
-\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
-\beamer@sectionintoc {2}{El problema de los dos cuerpos}{5}{0}{2}
-\beamer@sectionintoc {3}{Bibliografía}{18}{0}{3}
