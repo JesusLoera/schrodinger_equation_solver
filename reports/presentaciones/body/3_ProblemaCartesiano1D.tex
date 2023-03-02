@@ -1,0 +1,81 @@
+\section{La ecuación de Schrodinger unidimensional}
+
+
+\begin{frame}{Ecuación de Schrodinger }
+
+    La ecuación de Schrodinger  está dada por la siguiente ecuación.
+
+    \begin{equation}
+        i \hbar \frac{\partial \Psi }{\partial t} = \hat{H} \Psi
+        \label{eqn:ecn_Schrodinger}
+    \end{equation}
+
+    Donde $\hat{H}$ es el operador hamiltoniano.
+
+    \begin{equation}
+        \hat{H} = -\frac{ \hbar^2 }{2m} \nabla^2 + V
+        \label{eqn:op_hamiltoniano}
+    \end{equation}
+
+    Por lo tanto, al sustituir (\ref{eqn:op_hamiltoniano}) en (\ref{eqn:ecn_Schrodinger}).
+
+    \begin{equation}
+        i \hbar \frac{\partial \Psi }{\partial t}
+        = 
+        -\frac{ \hbar^2 }{2m} \nabla^2 \Psi + V \Psi
+    \end{equation}
+
+\end{frame}
+
+
+\begin{frame}{Ecuación de Schrodinger unidimensional}
+
+    Considerando un caso unidimensional, el laplaciano toma la siguiente forma.
+
+    \begin{equation}
+        \nabla^2 \Longrightarrow \frac{\partial^2 }{\partial x^2}
+    \end{equation}
+
+    
+    Por lo tanto, la ecuación de Schrodinger unidimensional nos queda de la siguiente manera.
+
+    \begin{equation}
+        i \hbar \frac{\partial \Psi }{\partial t}
+        = 
+        -\frac{ \hbar^2 }{2m} \frac{\partial^2 \Psi}{\partial x^2} + V \Psi
+        \label{eqn:ecn_Schrodinger_1d}
+    \end{equation}
+
+    Y la función de onda $\Psi$ debe satisfacer la condición de normalización.
+
+    \begin{equation}
+        \int \abs{ \Psi }^2 dV
+        \label{eqn:cond_normalizacion_gral}
+    \end{equation}
+
+\end{frame}
+
+
+\begin{frame}{Separación de variables}
+    Observamos que la ecuación (\ref{eqn:ecn_Schrodinger_1d}) es una ecuación diferencial parcial. Aplicaremos el método de separación de variables para transformalo en un problema de ecuación diferenciales ordinarias. 
+    
+    \vspace{0.2cm}
+    
+    Proponemos una solución de la forma:
+
+    \begin{equation}
+        \Psi(x, t) = \psi(x) T(t)
+    \end{equation}
+
+\end{frame}
+
+
+\begin{frame}{Ecuación de Schrodinger unidimensional independiente del tiempo}
+
+    La ecuación de Schrodinger está dada por la siguiente ecuación.
+
+    \begin{equation}
+        -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V \psi = E \psi
+    \end{equation}
+
+\end{frame}
