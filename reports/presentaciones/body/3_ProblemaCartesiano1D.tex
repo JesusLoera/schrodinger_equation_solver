@@ -57,7 +57,7 @@
 
 
 \begin{frame}{Separación de variables}
-    Observamos que la ecuación (\ref{eqn:ecn_Schrodinger_1d}) es una ecuación diferencial parcial. Aplicaremos el método de separación de variables para transformalo en un problema de ecuación diferenciales ordinarias. 
+    Observamos que la ecuación (\ref{eqn:ecn_Schrodinger_1d}) es una PDE, aplicaremos el método de separación de variables. 
     
     \vspace{0.2cm}
     
@@ -65,6 +65,43 @@
 
     \begin{equation}
         \Psi(x, t) = \psi(x) T(t)
+        \label{eqn:separacion}
+    \end{equation}
+
+    Al sustituir la ecuación (\ref{eqn:separacion}) en la ecuación (\ref{eqn:ecn_Schrodinger_1d}).
+
+    \begin{equation}
+        i \hbar \frac{1}{T(t)} \frac{dT(t)}{dt}
+        =
+        - \frac{\hbar^2}{2m} \frac{1}{\psi(x)} \frac{d^2\psi(x)}{dx^2} + V
+        \label{eqn:ecn_separada}
+    \end{equation}
+
+    La parte izquierda de la ecuación es una función de t y la parte derecha es una función de x, solo pueden ser igualadas si son funciones constantes.
+
+\end{frame}
+
+\begin{frame}{Solución de la parte temporal}
+    
+    Sea E la constante de separación, entonces la igualamos con la parte izquierda de la
+    ecuación (\ref{eqn:ecn_separada}).
+
+    \begin{equation}
+        i \hbar \frac{1}{T(t)} \frac{dT(t)}{dt}
+        =
+        E
+    \end{equation}
+
+    \begin{equation}
+        i \hbar \frac{dT(t)}{dt}
+        =
+        E T(t)
+    \end{equation}
+
+    Cuya solución está dada por la siguiente expresión que es independiente del potencial $V$.
+
+    \begin{equation}
+        T(t) = e^{-iEt/\hbar}
     \end{equation}
 
 \end{frame}
@@ -72,10 +109,42 @@
 
 \begin{frame}{Ecuación de Schrodinger unidimensional independiente del tiempo}
 
-    La ecuación de Schrodinger está dada por la siguiente ecuación.
+    Y ahora igualamos la parte derecha de la ecuación (\ref{eqn:ecn_separada}) con E.
+
+    \begin{equation}
+        - \frac{\hbar^2}{2m} \frac{1}{\psi(x)} \frac{d^2\psi(x)}{dx^2} + V 
+        =
+        E
+    \end{equation}
+
+    De manera que nos queda la conocida \emph{ecuación de Schrodinger indenpendiente del tiempo}.
 
     \begin{equation}
         -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V \psi = E \psi
+        \label{eqn:ecn_Schrodinger_indp_tiempo}
     \end{equation}
+
+    Esta ecuación tiene una solución distinta dependiendo del potencial
+    de interacción $V$.
+
+\end{frame}
+
+\begin{frame}{Resumen}
+
+    Los problemas unidimensionales con potenciales de la forma $V=V(x)$ pueden atacarse
+    de la siguiente manera.
+
+    \vspace{0.2cm}
+
+    \begin{itemize}
+        \item Determinar los eigenvalores de la energía E de la ecuación de 
+        Schrodinger independiente del tiempo.
+        \item Resolver para la función de onda independiente del tiempo $\psi$.
+        \item La soluciones deben satisfacer la condición de normalizacion de la ecuación
+        \ref{eqn:cond_normalizacion_gral}.
+        \begin{equation*}
+            \displaystyle\int_{-\infty}^{\infty} \abs{\psi}^2 dx
+        \end{equation*}
+    \end{itemize}
 
 \end{frame}
