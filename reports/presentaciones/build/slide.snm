@@ -5,7 +5,10 @@
 \beamer@slide {eqn:separacion}{8}
 \beamer@slide {eqn:ecn_separada}{8}
 \beamer@slide {eqn:ecn_Schrodinger_indp_tiempo}{10}
-\beamer@slide {eqn:ecn_radial_R}{24}
-\beamer@slide {eqn:ecn_angular_Y}{24}
-\beamer@slide {eqn:ecn_radial_u}{25}
-\beamer@slide {eqn:cond_normalizacion}{28}
+\beamer@slide {eqn:schrodinger_1d_match}{18}
+\beamer@slide {eqn:2_derivada_3pts_match}{19}
+\beamer@slide {eqn:discrete_schrodinger_matching}{19}
+\beamer@slide {eqn:ecn_radial_R}{33}
+\beamer@slide {eqn:ecn_angular_Y}{33}
+\beamer@slide {eqn:ecn_radial_u}{34}
+\beamer@slide {eqn:cond_normalizacion}{37}

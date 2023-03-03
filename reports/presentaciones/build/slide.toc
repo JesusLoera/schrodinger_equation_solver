@@ -1,5 +1,8 @@
 \babel@toc {spanish}{}
 \beamer@sectionintoc {1}{Introducción}{3}{0}{1}
 \beamer@sectionintoc {2}{La ecuación de Schrodinger unidimensional}{5}{0}{2}
-\beamer@sectionintoc {3}{El problema de los dos cuerpos}{12}{0}{3}
-\beamer@sectionintoc {4}{Bibliografía}{30}{0}{4}
+\beamer@subsectionintoc {2}{1}{Método de matrices tridiagonales}{13}{0}{2}
+\beamer@subsectionintoc {2}{2}{Método de la bisección de energía}{14}{0}{2}
+\beamer@subsectionintoc {2}{3}{Método de emparejamiento}{16}{0}{2}
+\beamer@sectionintoc {3}{El problema de los dos cuerpos}{21}{0}{3}
+\beamer@sectionintoc {4}{Bibliografía}{39}{0}{4}

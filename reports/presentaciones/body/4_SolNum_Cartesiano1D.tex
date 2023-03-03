@@ -1,0 +1,110 @@
+\begin{frame}{Soluciones numéricas}
+    Para resolver la ecuación de Schrodinger de forma computacional haremos las siguientes consideraciones.
+    \begin{enumerate}
+        \item Como no podemos integrar la ecuación de Schrodinger de $-\infty$ a $\infty$, consideramos que nuestro sistema se encuentra confinado 
+        \item Vamos a discretizar el espacio entre dos puntos, $x_0$ y $x_N$,en una serie de N+1 puntos equidistantes separados por una distancia $\Delta x$, es decir $ \left\{ x_0, x_1, x_2, ..., x_{N-1}, x_N\right\}$ tal que $x_i = x_o + (i-1)\Delta x$. 
+        \item Introducimos la siguiente notación $ \psi_i \equiv  \psi(x_i)$ y $ V_i \equiv V(x_i)$.
+    \end{enumerate}
+\end{frame}
+
+
+% TRIDIAGONAL MATRIX
+\subsection{Método de matrices tridiagonales}
+
+
+% ENERGY BISECTION
+\subsection{Método de la bisección de energía}
+
+\begin{frame}
+    Primeramente veamos un método para resolver ecuaciones de la f
+\end{frame}
+
+
+% MATCHING METHOD
+
+\subsection{Método de emparejamiento}
+
+\begin{frame}{Método de emparejamiento}
+    Vamos a resolver la ecuación de Schrodinger.
+    \begin{equation}
+        -\frac{\hbar^2}{2m} \psi^{''}(x) + V(x)\psi(x) = E\psi(x) 
+    \end{equation}
+    
+    Sujeta a la siguientes condiciones de frontera.
+    \begin{equation}
+        \psi(x_0) = 0
+        \quad \text{y} \quad
+        \psi(x_N) = 0
+    \end{equation}
+
+    Usaremos el método del disparo para resolver la ecuación diferencial sujeta a condiciones en la frontera.
+\end{frame}
+
+\begin{frame}{Método de emparejamiento}
+    El método del disparo para BVP  consiste en tratar el problema como un IVP y adivinar las condiciones iniciales que satisfagan las condiciones en la frontera. Resolveremos la ecn. de Schrodinger:
+
+    \begin{equation}
+        -\frac{\hbar^2}{2m} \psi^{''}(x) + V(x)\psi(x) = E\psi(x) 
+        \label{eqn:schrodinger_1d_match}
+    \end{equation}
+    
+    Sujeta a la siguientes condiciones iniciales.
+    \begin{equation}
+        \psi(x_0) = 0
+        \quad \text{y} \quad
+        \psi^{'}(x_o) = s
+    \end{equation}
+
+    Donde $s$ es un número real distinto de 0 y se varía hasta satisfacer las condiciones en la frontera, $\psi(x_0) = 0$ y $\psi(x_N) = 0$, se conoce como el \emph{parametro libre de disparo}.
+\end{frame}
+
+\begin{frame}{Método de emparejamiento}
+
+    Dado un valor de la energía E, buscaremos una forma de integrar la ecuación de Schrodinger para determinar la función de onda $\psi$.
+    
+    \vspace{0.2cm}
+
+    La segunda derivada de 3 puntos en un punto arbitrario $\psi_i$ está dada por la siguiente expresión.
+
+    \begin{equation}
+        \psi_{i}^{''} 
+        =
+        \frac{ \psi_{i+1} - 2\psi_{i} +  \psi_{i-1} }{ (\Delta x)^2 }
+        \label{eqn:2_derivada_3pts_match}
+    \end{equation}
+
+    Sustituyendo la ecuación (\ref{eqn:2_derivada_3pts_match}) en la ecuación (\ref{eqn:schrodinger_1d_match}).
+
+    \begin{equation}
+        -\frac{\hbar^2}{2m} \left[ 
+            \frac{ \psi_{i+1} - 2\psi_{i} +  \psi_{i-1} }{ (\Delta x)^2 }
+         \right] + V_i\psi_i 
+         = 
+         E\psi_i 
+         \label{eqn:discrete_schrodinger_matching}
+    \end{equation}
+
+\end{frame}
+
+\begin{frame}{Método de emparejamiento}
+    Despejando $\psi_{i+1}$ de la ecuación (\ref{eqn:discrete_schrodinger_matching}) tenemos la \emph{fórmula de integración hacia delante}.
+
+    \begin{equation}
+        \psi_{i+1}
+        =
+        2\left[
+            1+ m\frac{(\Delta)^2}{\hbar^2} (V_i - E) 
+        \right] \psi_i - \psi_{i-1}
+    \end{equation}
+
+    Despejando $\psi_{i-1}$ de la ecuación (\ref{eqn:discrete_schrodinger_matching}) tenemos la \emph{fórmula de integración hacia atrás}.
+
+    \begin{equation}
+        \psi_{i-1}
+        =
+        2\left[
+            1+ m\frac{(\Delta)^2}{\hbar^2} (V_i - E) 
+        \right] \psi_i - \psi_{i+1}
+    \end{equation}
+
+\end{frame}
