@@ -1,0 +1,1 @@
+"Primeros eigenestados " + f"$V=\frac{1}{2}m\omega^{2}$"
