@@ -20,8 +20,8 @@ plt.style.use('ggplot')
 
 # Potencial del oscilador armónico
 def Potencial(x):
-    me = 1.0 ; omega = 1.0
-    return (0.5)*(me*omega**2)*(x**2)
+    Co = 6.4 ; De = 0.3 ; a = 1 ; xe = 1.6
+    return Co + De*(1-np.exp(-a*(x-xe)))**2
 
 # P(x)
 def P(x, E):
@@ -36,21 +36,19 @@ def R(x, E):
 Parametros iniciales
 """
 # Definimos los parametros de la malla de integración
-xo = -5.0 ; xn = 5.0 ; dx = 0.001
+xo = 0.01 ; xn = 12 ; dx = 0.001
 yo = 0.0  ; yn = 0.0
 N_size = int((xn - xo)/dx + 1)
 # Nivel de energía a buscar
-n = 0
+n = 3
 # Parametro libre de disparo
 s1 = 1.0e-5*(-1)**n   ;   s2 = 1.0e-5*(-1)**n
 # Estimación inicial de la energía En
-E = -0.1
+E = 6.2
 # Unidades atómicas
 me = 1 ; hbar = 1
-# Parametro del potencial
-omega = 1
 # X matching
-xm = np.sqrt(abs((2*E)/(me*omega**2)))
+xm = 3.3
 
 """
 Definición de la malla
@@ -169,23 +167,22 @@ Aplicación del método de Numerov-Cooley
 """
 
 def Y_exact(X, n):
-    c1 = 1/np.sqrt((scipy.special.factorial(n))*(2**n))
-    c2 = ((me*omega)/(np.pi*hbar))**(1/4)
-    Hn = scipy.special.hermite(n, monic=False)(np.sqrt((me*omega)/(hbar))*X)
-    Y = c1*c2*np.exp(-(me*omega*X**2)/(2*hbar))*Hn
+    c1 = 0.886463
+    c2 = 0.774597
+    Y = c1*np.exp(-c2*np.exp(1.6-X))*(np.exp(1.6-X))**(0.274597)
     return Y
 
-def plot_solution(X, Y, E, n):
-    Y1 = MetodoNumerov(X, Y, E)
-    plt.title(r"Numerov-Cooley Method $E{}$".format(n))
-    plt.plot(X, Y1, label=r"$E={:.2f}$ inicial".format(E))
-    Y2, En, N, Energies = NumerovCooley(X, Y, E)
-    plt.plot(X, Y2, label=r"$E{}={:.2f}$ final".format(N, En))
-    Yexact = Y_exact(X, n)
-    E_exact = n + 0.5
-    plt.plot(X, Yexact, label=r"$E{}={:.2f}$ Sol. Exacta".format(n,E_exact), c="orange")
+def plot_solution(X, Y, En, i):
+    Y, En, N, Energies = NumerovCooley(X, Y, E)
+    plt.title(r"Numerov-Cooley Method $E{}$".format(N))
+    plt.plot(X, Y, label=r"$E{}={:.2f}$ final".format(N, En))
     plt.legend()
+    filename = "imagenes/"+str(i)+"_E"+ str(N) + ".png"
     plt.show()
+    #plt.savefig(filename)
 
+energies = np.linspace(0, 10, 5)
 
-plot_solution(X, Y, E, n)
+for i in range(len(energies)):
+    E = energies[i]
+    plot_solution(X, Y, E, i)

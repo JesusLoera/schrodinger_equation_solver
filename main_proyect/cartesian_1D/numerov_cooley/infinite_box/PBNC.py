@@ -20,8 +20,8 @@ plt.style.use('ggplot')
 
 # Potencial del oscilador armónico
 def Potencial(x):
-    me = 1.0 ; omega = 1.0
-    return (0.5)*(me*omega**2)*(x**2)
+    v=x*0
+    return v
 
 # P(x)
 def P(x, E):
@@ -36,21 +36,21 @@ def R(x, E):
 Parametros iniciales
 """
 # Definimos los parametros de la malla de integración
-xo = -5.0 ; xn = 5.0 ; dx = 0.001
+xo = 0 ; xn = 10.0 ; dx = 0.001
 yo = 0.0  ; yn = 0.0
 N_size = int((xn - xo)/dx + 1)
 # Nivel de energía a buscar
-n = 0
+n = 1
 # Parametro libre de disparo
-s1 = 1.0e-5*(-1)**n   ;   s2 = 1.0e-5*(-1)**n
+s1 = 1.0e-5*(-1)**(n-1)   ;   s2 = 1.0e-5*(-1)**(n)
 # Estimación inicial de la energía En
-E = -0.1
+E = 0.0005
 # Unidades atómicas
 me = 1 ; hbar = 1
 # Parametro del potencial
 omega = 1
 # X matching
-xm = np.sqrt(abs((2*E)/(me*omega**2)))
+xm = 7
 
 """
 Definición de la malla
@@ -71,8 +71,6 @@ def count_nodes(Y):
         if (Y[i]*Y[i+1] < 0):
             nodes = nodes + 1
     return nodes
-
-
 
 def xm_index(xo, xm):
     x = xo
@@ -164,15 +162,12 @@ def NumerovCooley(X, Y, E):
 
 
 """
-Aplicación del método de Numerov-Cooley
-
+Utilizamos el método
 """
 
 def Y_exact(X, n):
-    c1 = 1/np.sqrt((scipy.special.factorial(n))*(2**n))
-    c2 = ((me*omega)/(np.pi*hbar))**(1/4)
-    Hn = scipy.special.hermite(n, monic=False)(np.sqrt((me*omega)/(hbar))*X)
-    Y = c1*c2*np.exp(-(me*omega*X**2)/(2*hbar))*Hn
+    L = max(X) - min(X)
+    Y = np.sqrt(2/L)*np.sin((n*np.pi*X)/L)
     return Y
 
 def plot_solution(X, Y, E, n):
@@ -180,9 +175,9 @@ def plot_solution(X, Y, E, n):
     plt.title(r"Numerov-Cooley Method $E{}$".format(n))
     plt.plot(X, Y1, label=r"$E={:.2f}$ inicial".format(E))
     Y2, En, N, Energies = NumerovCooley(X, Y, E)
-    plt.plot(X, Y2, label=r"$E{}={:.2f}$ final".format(N, En))
+    plt.plot(X, Y2, label=r"$E{}={:.2f}$ final".format(N+1, En))
     Yexact = Y_exact(X, n)
-    E_exact = n + 0.5
+    E_exact = ((n**2)*(np.pi**2)*(hbar**2))/(2*me*(max(X) - min(X))**2)
     plt.plot(X, Yexact, label=r"$E{}={:.2f}$ Sol. Exacta".format(n,E_exact), c="orange")
     plt.legend()
     plt.show()
