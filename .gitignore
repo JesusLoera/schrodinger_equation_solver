@@ -3,9 +3,14 @@
 # Ignora los siguientes folders
 
 /references
+/reports
 
 # Ignora las siguientes terminaciones
 
 *.mp4
 
 *.pdf
+
+*.exe
+
+*.sh
