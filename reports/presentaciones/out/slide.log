@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.1)  6 MAR 2023 11:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.11)  20 MAY 2023 12:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/jesus/Documentos/programming/schrodinger_equation_solver/reports/presentaciones/slide
-(c:/Users/jesus/Documentos/programming/schrodinger_equation_solver/reports/presentaciones/slide.tex
+**c:/Users/loera/Documents/programming/schrodinger_equation_solver/reports/presentaciones/slide.tex
+(c:/Users/loera/Documents/programming/schrodinger_equation_solver/reports/presentaciones/slide.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-22> (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamer.cls
-Document Class: beamer 2023/02/20 v3.69 A class for typesetting presentations
+L3 programming layer <2023-02-07> (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamer.cls
+Document Class: beamer 2022/09/13 v3.68 A class for typesetting presentations
 (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (c:/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count185
@@ -455,7 +455,7 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \c@table=\count320
 \abovecaptionskip=\skip57
 \belowcaptionskip=\skip58
-) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex)
+) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
 \beamer@section@min@dim=\dimen282
 ) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty (c:/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
@@ -540,13 +540,13 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (c:/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (c:/texlive/2022/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/02/13 3.86 The Babel package
+Package: babel 2022/01/23 3.85 The Babel package
 \babel@savecnt=\count334
 \U@D=\dimen294
 \l@unhyphenated=\language87
  (c:/texlive/2022/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-LaTeX Info: Redefining \textlatin on input line 4088.
+LaTeX Info: Redefining \textlatin on input line 4076.
 \bbl@dirlevel=\count335
  (c:/texlive/2022/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
@@ -671,14 +671,14 @@ Package: calligra 2012/04/10 v1.9 LaTeX package calligra
 \lst@lineno=\count356
 \lst@maxwidth=\dimen320
  (c:/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count357
 \lst@skipnumbers=\count358
 \lst@framebox=\box122
 ) (c:/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2023/02/27 1.9 listings configuration
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package: listings 2023/02/27 1.9 (Carsten Heinz)
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
  (c:/texlive/2022/texmf-dist/tex/latex/stackengine/stackengine.sty
 Package: stackengine 2021/07/22 v4.11\ Stacking text and objects in convenient ways
  (c:/texlive/2022/texmf-dist/tex/generic/listofitems/listofitems.sty (c:/texlive/2022/texmf-dist/tex/generic/listofitems/listofitems.tex
@@ -755,7 +755,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen335
 \@vwid@roff=\dimen336
 )) (c:/texlive/2022/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
+Package: tcolorbox 2023/02/10 version 6.0.0 text color boxes
  (c:/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
@@ -1091,11 +1091,7 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 ) [23
 
-]
-
-LaTeX Warning: Citation `de2014introduccion' on page 24 undefined on input line 18.
-
-[24
+] [24
 
 ] [25
 
@@ -1117,25 +1113,13 @@ LaTeX Warning: Citation `de2014introduccion' on page 24 undefined on input line 
 
 ] [34
 
-]
+] [35
 
-LaTeX Warning: Citation `griffiths2018introduction' on page 35 undefined on input line 235.
-
-[35
-
-]
-
-LaTeX Warning: Citation `griffiths2018introduction' on page 36 undefined on input line 256.
-
-[36
+] [36
 
 ] [37
 
-]
-
-LaTeX Warning: Citation `arfken1999mathematical' on page 38 undefined on input line 323.
-
-[38
+] [38
 
 ] [39
 
@@ -1146,9 +1130,7 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 ) [41
 
-]
-No file slide.bbl.
-[42
+] (out/slide.bbl) [42
 
 ]) (./body/8_Agradecimientos.tex
 LaTeX Font Info:    Font shape `T1/calligra/m/n' will be
@@ -1169,25 +1151,22 @@ LaTeX Font Info:    Font shape `T1/calligra/m/n' will be
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `slide.out' has not changed.
 (rerunfilecheck)             Checksum: 4636DDCBAE40E3CCB7EEDB1B804FBA89;1347.
  ) 
 Here is how much of TeX's memory you used:
- 31523 strings out of 476024
- 614619 string characters out of 5794017
- 1888382 words of memory out of 5000000
- 51205 multiletter control sequences out of 15000+600000
- 529233 words of font info for 71 fonts, out of 8000000 for 9000
+ 31533 strings out of 476029
+ 614593 string characters out of 5794164
+ 1888340 words of memory out of 5000000
+ 51209 multiletter control sequences out of 15000+600000
+ 528458 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,20n,133p,489b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/calligra-type1/callig15.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb>
-Output written on out/slide.pdf (43 pages, 3674293 bytes).
+ 128i,20n,133p,492b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/calligra-type1/callig15.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb>
+Output written on out/slide.pdf (43 pages, 3671441 bytes).
 PDF statistics:
- 3405 PDF objects out of 3580 (max. 8388607)
- 3226 compressed objects within 33 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 3407 PDF objects out of 3580 (max. 8388607)
+ 3230 compressed objects within 33 object streams
+ 113 named destinations out of 1000 (max. 500000)
  134 words of extra memory for PDF output out of 10000 (max. 10000000)
 
