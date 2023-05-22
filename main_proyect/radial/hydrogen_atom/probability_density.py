@@ -8,9 +8,9 @@ from matplotlib.colors import LogNorm
 plt.style.use('ggplot')
 
 # Quantum numbers
-m = 1
-l = 2
-n = 4
+m = 0
+l = 0
+n = 2
 
 # Cargamos la función radial de schrodinger calculada
 #  para hacer una inteprolación 
